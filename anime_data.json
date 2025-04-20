@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Attack on Titan",
+    "genres": ["Action", "Drama", "Fantasy", "Shounen"],
+    "synopsis": "In a world where humanity lives inside walled cities to escape giant Titans, Eren Yeager joins the fight to reclaim freedom.",
+    "release_year": 2013,
+    "created_at": "2025-04-20T00:00:00Z"
+  },
+  {
+    "title": "Demon Slayer: Kimetsu no Yaiba",
+    "genres": ["Action", "Adventure", "Supernatural"],
+    "synopsis": "Tanjiro Kamado becomes a demon slayer to save his sister Nezuko, who was turned into a demon, and avenge his family.",
+    "release_year": 2019,
+    "created_at": "2025-04-20T00:00:00Z"
+  },
+  {
+    "title": "Naruto",
+    "genres": ["Action", "Adventure", "Shounen"],
+    "synopsis": "Naruto Uzumaki, a young ninja with a sealed demon, dreams of becoming Hokage to earn his village’s respect.",
+    "release_year": 2002,
+    "created_at": "2025-04-20T00:00:00Z"
+  },
+  {
+    "title": "Death Note",
+    "genres": ["Mystery", "Psychological", "Thriller"],
+    "synopsis": "Light Yagami finds a supernatural notebook that kills anyone whose name is written in it, sparking a battle of wits with detective L.",
+    "release_year": 2006,
+    "created_at": "2025-04-20T00:00:00Z"
+  },
+  {
+    "title": "My Teen Romantic Comedy Yahari",
+    "genres": ["Comedy", "Romance", "Slice of Life"],
+    "synopsis": "Hachiman Hikigaya, a cynical high schooler, is forced to join a service club, leading to unexpected friendships and personal growth.",
+    "release_year": 2013,
+    "created_at": "2025-04-20T00:00:00Z"
+  },
+  {
+    "title": "Fullmetal Alchemist: Brotherhood",
+    "genres": ["Action", "Adventure", "Fantasy"],
+    "synopsis": "Brothers Edward and Alphonse Elric use alchemy to search for the Philosopher’s Stone, facing moral dilemmas and dark conspiracies.",
+    "release_year": 2009,
+    "created_at": "2025-04-20T00:00:00Z"
+  },
+  {
+    "title": "One Punch Man",
+    "genres": ["Action", "Comedy", "Superhero"],
+    "synopsis": "Saitama, a hero who can defeat any opponent with one punch, struggles to find meaning in his overwhelmingly powerful life.",
+    "release_year": 2015,
+    "created_at": "2025-04-20T00:00:00Z"
+  },
+  {
+    "title": "Re:Zero - Starting Life in Another World",
+    "genres": ["Fantasy", "Isekai", "Drama"],
+    "synopsis": "Subaru Natsuki is transported to a fantasy world where he discovers he can rewind time by dying, using it to protect those he loves.",
+    "release_year": 2016,
+    "created_at": "2025-04-20T00:00:00Z"
+  },
+  {
+    "title": "Cowboy Bebop",
+    "genres": ["Action", "Sci-Fi", "Adventure"],
+    "synopsis": "Bounty hunter Spike Spiegel and his crew travel the galaxy in the spaceship Bebop, confronting their pasts and new challenges.",
+    "release_year": 1998,
+    "created_at": "2025-04-20T00:00:00Z"
+  },
+  {
+    "title": "Jujutsu Kaisen",
+    "genres": ["Action", "Supernatural", "Shounen"],
+    "synopsis": "Yuji Itadori becomes a sorcerer after swallowing a cursed object, fighting malevolent curses to protect humanity.",
+    "release_year": 2020,
+    "created_at": "2025-04-20T00:00:00Z"
+  }
+]

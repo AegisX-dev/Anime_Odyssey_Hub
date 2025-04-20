@@ -1,0 +1,227 @@
+# Anime_Odyssey_Hub Project Notes
+
+Status: Planning phase, backend-first MVP
+Last Updated: April 20, 2025
+Owner: Dev Sharma (GitHub: AegisX-dev)
+Location: Hapur, Uttar Pradesh, India
+
+## Project_Overview
+
+- Objective: Build a lightweight web app for anime fans to browse, personalize, and engage with anime content.
+- Target Audience: Global anime fans (casual to dedicated).
+- Core Value:
+  - Searchable anime catalog.
+  - User profiles for watch history and favorites.
+  - Future community features (forums, recommendations).
+- Platform: Web app (Node.js + React, MongoDB).
+- Constraints:
+  - Solo developer.
+  - Zero budget: Free tools only.
+  - No timeline: Flexible sprints.
+- Tools:
+  - IDE: Sublime Text
+  - API Testing: Hoppscotch
+  - Version Control: Git + GitHub (public repo)
+  - Data Seeding: AniList API, MyAnimeList API, or manual JSON
+  - UI Design: Pure CSS (no frameworks)
+
+## Features
+
+MVP focuses on backend APIs, with minimal React + CSS frontend for testing. Deferred features reduce scope for solo dev.
+
+### Anime Catalog (Priority)
+- Description: Browse/search anime by title or genre.
+- MongoDB: [[Schemas/Anime]] collection.
+- APIs:
+  - POST /anime (add anime)
+  - GET /anime (list anime)
+  - GET /anime/search (search by title/genre)
+- Data: Seed via [[Data_Sourcing]] (AniList, MyAnimeList, or JSON).
+- Status: Planned for [[Roadmap/Sprint_2]].
+
+### User Profiles
+- Description: Register, login, manage profiles.
+- MongoDB: [[Schemas/Users]] collection.
+- APIs:
+  - POST /auth/register
+  - POST /auth/login
+  - GET /user (profile)
+- Status: Planned for [[Roadmap/Sprint_3]].
+
+### Watch History and Favorites
+- Description: Track watched/favorited anime.
+- MongoDB: [[Schemas/UserActivity]] collection.
+- APIs:
+  - POST /user/activity (log activity)
+  - GET /user/activity (get history)
+- Status: Planned for [[Roadmap/Sprint_4]].
+
+### Deferred Features
+- Community: Forums, comments (post-MVP).
+- Recommendations: Personalized suggestions.
+- Notifications: Alerts for new episodes.
+- Reason: Prioritize backend; add later.
+
+## Architecture
+
+- Database: MongoDB (MongoDB Atlas, free M0 tier, 512MB)
+  - Collections: [[Schemas/Anime]], [[Schemas/Users]], [[Schemas/UserActivity]]
+  - Indexes: Text index on Anime.title, index on UserActivity.user_id
+- Backend:
+  - Framework: Node.js + Express
+  - ORM: Mongoose
+  - Auth: JWT, bcrypt
+  - APIs: RESTful, see [[APIs]]
+- Frontend (Minimal):
+  - Framework: React
+  - Styling: Pure CSS
+  - Scope: Login, anime list, profile pages
+- Hosting (Free):
+  - Database: MongoDB Atlas
+  - Backend: Vercel
+  - Frontend: Vercel or Netlify
+- Tools: See [[Project_Overview#Tools]]
+
+## Schemas
+
+### Anime
+- Fields:
+  - _id: ObjectId
+  - title: String (required)
+  - genres: [String]
+  - synopsis: String
+  - release_year: Number
+  - created_at: Date
+- Notes: Confirm fields (add episodes, streaming_links?) in [[Roadmap/Sprint_1]].
+- Index: Text index on title for search.
+
+### Users
+- Fields:
+  - _id: ObjectId
+  - username: String (required)
+  - email: String (required)
+  - password_hash: String
+  - created_at: Date
+- Notes: Minimal for MVP; expand later (e.g., profile_picture).
+
+### UserActivity
+- Fields:
+  - _id: ObjectId
+  - user_id: ObjectId
+  - anime_id: ObjectId
+  - activity_type: String ("watched", "favorited")
+  - timestamp: Date
+- Notes: Links to [[Schemas/Anime]] and [[Schemas/Users]].
+- Index: user_id for fast queries.
+
+## APIs
+
+- /anime:
+  - POST: Create anime (admin-only for MVP)
+  - GET: List anime (paginated)
+  - GET /search: Search by title/genre
+- /auth:
+  - POST /register: Create user
+  - POST /login: Authenticate user
+- /user:
+  - GET: Get profile
+  - POST /activity: Log activity
+  - GET /activity: Get history
+- Notes: Focus on create/read for MVP; add update/delete post-MVP.
+
+## Data_Sourcing
+
+- Options:
+  - AniList API: GraphQL, free, no auth for basic queries.
+  - MyAnimeList API: REST, requires auth (complex for MVP).
+  - Manual JSON: Small dataset (~10-50 anime) imported to Atlas.
+- Plan: Choose one in [[Roadmap/Sprint_1]].
+- Notes: AniList preferred for simplicity; manual JSON as fallback.
+
+## Roadmap
+
+### Sprint_1: Project Setup (1-2 weeks)
+- Tasks:
+  - Install Node.js (LTS ~v20)
+  - Configure Sublime Text (plugins: JavaScriptNext, Pretty JSON)
+  - Install Git, configure user
+  - Create GitHub repo (Anime_Odyssey_Hub)
+  - Set up MongoDB Atlas (M0 cluster, Mumbai)
+  - Sign up for Vercel
+  - Create Obsidian vault
+- Deliverable: Environment ready, repo created.
+- Status: Next to start.
+
+### Sprint_2: Anime Catalog Backend (2-3 weeks)
+- Define [[Schemas/Anime]].
+- Plan [[APIs#/anime]].
+- Seed data via [[Data_Sourcing]].
+- Test with Hoppscotch.
+- Deploy to Vercel.
+- Deliverable: Anime APIs functional.
+
+### Sprint_3: User Authentication (2-3 weeks)
+- Define [[Schemas/Users]].
+- Plan [[APIs#/auth]], [[APIs#/user]].
+- Test with Hoppscotch.
+- Deliverable: Auth APIs working.
+
+### Sprint_4: Watch History and Favorites (2 weeks)
+- Define [[Schemas/UserActivity]].
+- Plan [[APIs#/user]] activity endpoints.
+- Test with Hoppscotch.
+- Deliverable: Activity APIs functional.
+
+### Sprint_5: Minimal Frontend (2-3 weeks, Optional)
+- Set up React app.
+- Create login, anime list, profile pages with pure CSS.
+- Connect to APIs.
+- Deploy to Vercel/Netlify.
+- Deliverable: Basic UI.
+
+### Post-MVP
+- Add community, recommendations.
+- Expand catalog.
+- Polish CSS.
+
+## Risks
+
+- Time Constraints: Solo dev.
+  - Mitigation: Small sprints, use Obsidian for organization.
+- MongoDB 512MB Limit: Small storage.
+  - Mitigation: Seed minimal data (~100 anime).
+- Pure CSS: Time-intensive.
+  - Mitigation: Minimal frontend, focus on backend.
+- API Limits: MyAnimeList auth complexity.
+  - Mitigation: Use AniList or JSON.
+
+## Success_Metrics
+
+- MVP (3-6 Months):
+  - APIs for anime, auth, activity working (testable in Hoppscotch).
+  - 50-100 anime entries seeded.
+  - Basic React + CSS UI deployed.
+- Long-Term (1 Year):
+  - 1,000 anime entries.
+  - Community features added.
+  - GitHub repo enhances portfolio.
+
+## Next_Steps
+
+1. Install Node.js: Check (node -v) or download LTS (~v20).
+2. Set Up Sublime Text: Install plugins (JavaScriptNext, Pretty JSON).
+3. Create GitHub Repo: Public, named Anime_Odyssey_Hub.
+4. Set Up MongoDB Atlas: M0 cluster, Mumbai region, note connection string.
+5. Sign Up for Vercel: Link to GitHub.
+6. Plan in Obsidian: Create vault, add [[Schemas]], [[APIs]], [[Data_Sourcing]].
+7. Choose Data Source: AniList API, MyAnimeList API, or manual JSON.
+
+## Workspace_Setup
+
+- [ ] Install Node.js (LTS ~v20)
+- [ ] Configure Sublime Text (JavaScriptNext, Pretty JSON)
+- [ ] Install Git, configure user
+- [ ] Create GitHub repo (Anime_Odyssey_Hub)
+- [ ] Set up MongoDB Atlas (M0 cluster, Mumbai)
+- [ ] Sign up for Vercel
+- [ ] Create Obsidian vault
