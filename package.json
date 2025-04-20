@@ -4,8 +4,9 @@
   "description": "\"# Anime_Odyssey_Hub\"",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "start": "node src/server.js",
+  "dev": "nodemon src/server.js"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AegisX-dev/Anime_Odyssey_Hub.git"
@@ -17,5 +18,14 @@
   "bugs": {
     "url": "https://github.com/AegisX-dev/Anime_Odyssey_Hub/issues"
   },
-  "homepage": "https://github.com/AegisX-dev/Anime_Odyssey_Hub#readme"
+  "homepage": "https://github.com/AegisX-dev/Anime_Odyssey_Hub#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.13.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
 }
