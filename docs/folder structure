@@ -1,0 +1,46 @@
+Anime_Odyssey_Hub/
+├── .env                # Sensitive config (e.g., MONGODB_URI, JWT_SECRET)
+├── .gitignore          # Excludes .env, node_modules
+├── README.md           # Project overview and setup instructions
+├── package.json        # Node.js project config (backend)
+├── /server/            # Backend source code
+│   ├── /src/           
+│   │   ├── /config/    
+│   │   │   └── db.js   # MongoDB connection setup
+│   │   ├── /models/    
+│   │   │   ├── anime.js   # Anime schema
+│   │   │   ├── user.js    # User schema
+│   │   │   └── userActivity.js  # User activity schema
+│   │   ├── /routes/    
+│   │   │   ├── animeRoutes.js  # Anime API endpoints
+│   │   │   ├── authRoutes.js   # Auth API endpoints
+│   │   │   └── userRoutes.js   # User/profile API endpoints
+│   │   ├── /controllers/   
+│   │   │   ├── animeController.js
+│   │   │   ├── authController.js
+│   │   │   └── userController.js
+│   │   ├── /middleware/    
+│   │   │   └── auth.js    # JWT authentication middleware
+│   │   ├── app.js         # Main Express application
+│   │   └── server.js      # Entry point to start the server
+│   ├── package.json      # Backend dependencies
+├── /client/            # React frontend (Vite-based)
+│   ├── /src/           
+│   │   ├── /components/  # Reusable React components (e.g., Navbar, ActivityCard)
+│   │   ├── /pages/       # Page components (e.g., Home, ActivityLog, Profile)
+│   │   │   ├── Home.jsx
+│   │   │   ├── ActivityLog.jsx
+│   │   │   └── Profile.jsx
+│   │   ├── /styles/      # CSS files (e.g., main.css)
+│   │   ├── App.jsx       # Main React app
+│   │   ├── main.jsx      # React entry point
+│   │   └── vite.config.js # Vite configuration with proxy
+│   ├── package.json      # Frontend dependencies (e.g., axios, react-router-dom)
+│   └── public/         
+│       └── index.html    # React root HTML
+├── /docs/              # Documentation and notes
+│   └── project.md      # Updated project notes
+├── /tests/             # Unit tests (optional, post-MVP)
+│   └── example.test.js
+└── /scripts/           # Utility scripts
+    └── importData.js   # Script to import anime_data.json to MongoDB
