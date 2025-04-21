@@ -66,10 +66,10 @@ Anime_Odyssey_Hub/
 ```
 ## Setup Instructions
 1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/AegisX-dev/Anime_Odyssey_Hub.git
-   cd Anime_Odyssey_Hub
-   ```
+```bash
+git clone https://github.com/AegisX-dev/Anime_Odyssey_Hub.git
+cd Anime_Odyssey_Hub
+```
 2. **Install Backend Dependencies**:
 ```bash
 cd server
